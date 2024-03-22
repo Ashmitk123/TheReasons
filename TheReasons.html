@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reasons</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+    #heading {
+        font-size: 2em;
+        text-align: center;
+        margin-top: 10vh;
+    }
+    #pressButton {
+        font-size: 1em;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10vh;
+        position: absolute;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        #heading {
+            font-size: 1.5em;
+            margin-top: 5vh;
+        }
+        #pressButton {
+            font-size: 0.8em;
+            margin-top: 5vh;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1 id="heading">The Reasons</h1>
+<button id="pressButton" onclick="moveButton()">Press</button>
+
+<script>
+    var counter = 0;
+
+    function moveButton() {
+        counter++;
+        var button = document.getElementById('pressButton');
+        var newX = Math.random() * (window.innerWidth - button.offsetWidth);
+        var newY = Math.random() * (window.innerHeight - button.offsetHeight);
+        button.style.left = newX + 'px';
+        button.style.top = newY + 'px';
+        if (counter >= 5) {
+            button.innerHTML = "Show Reason";
+            button.onclick = showReason;
+        }
+    }
+
+    function showReason() {
+        var reasons = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+        ];
+        var randomIndex = Math.floor(Math.random() * reasons.length);
+        var reason = reasons[randomIndex];
+        alert(reason);
+    }
+</script>
+
+</body>
+</html>
